@@ -1,0 +1,481 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.all-content{
+  margin-top: 10vw;
+}
+
+.modal-button{
+  width: 10vw;
+  height:5vw;
+  background-color: rgba(49, 49, 49, 0.2);
+  border: 2px solid rgb(255,255,255);
+  border-radius: 1vw;
+  cursor: pointer;
+  transition: ease 0.3s;
+}
+
+.modal-button:hover{
+  border-color: #F02050;
+}
+
+.modal-content{
+  display:grid;
+  gap: 2vw;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas: 
+  "d1 d2 d3"
+  ". d4 .";
+  max-width: max-content;
+  max-height: max-content;
+  margin-top: 1vw;
+}
+
+.d1{grid-area: d1;}
+.d2{grid-area: d2;}
+.d3{grid-area: d3;}
+.d4{grid-area: d4;}
+
+.modal-div {
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 40px;
+  color: white;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  width: 15vw;
+  height: 9vw;
+  overflow-x: hidden;
+  overflow-y:auto;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-div::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.modal-div:hover::before {
+  left: 100%;
+}
+
+
+.modal-div:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.2),
+      0 0 0 1px rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.project-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.project-modal-content {
+  background: rgb(30,30,30);
+  padding: 30px;
+  border-radius: 10px;
+  width: 80vw;
+  height: 40vw;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+.close-button:hover{
+  color: #FF0000;
+}
+
+.project-description {
+  margin: 20px 0;
+}
+
+.project-technologies ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.project-technologies li {
+  background: #383838;
+  padding: 5px 10px;
+  margin: 5px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.images-container {
+  display: flex;
+  gap: 3vw;
+  flex-wrap: wrap;
+  margin-top: 2vw;
+  margin-left: 6.5vw;
+}
+
+.image-placeholder {
+  width: 20vw;
+  height: 15vw;
+  background: #383838;
+  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.image-placeholder img {
+  width: 30vw;
+  height: 20vw;
+  margin-bottom: 10px;
+}
+
+.project-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.carousel-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carousel-frame {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: rgba(49, 49, 49, 0.2);
+  border: 2px solid #404040;
+  border-radius: 10px;
+  width: 60vw;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  height: 25vw;
+}
+
+.carousel-image {
+  width: 45vw;
+  height: 55vw;
+  height: auto;
+  border-radius: 5px;
+  object-fit: contain;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+
+.carousel-image.slide-next {
+  animation: slideNext 0.3s ease-in-out;
+}
+
+.carousel-image.slide-prev {
+  animation: slidePrev 0.3s ease-in-out;
+}
+
+.carousel-button {
+  background-color: #383838;
+  color: #AAAAAA;
+  border: 1px solid #383838;
+  width: 3vw;
+  height: 10vw;
+  font-size: 24px;
+  border-radius: 0.5vw;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: ease 0.3s;
+}
+
+.carousel-button:hover {
+  color: #FFFFFF;
+  font-size: 36px;
+}
+
+.carousel-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.carousel-indicators {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .carousel-frame {
+    padding: 10px;
+  }
+  
+  .carousel-button {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+  
+  .image-container {
+    min-height: 250px;
+  }
+  
+  .carousel-image {
+    max-height: 300px;
+  }
+}
+
+@keyframes slideNext {
+  0% {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slidePrev {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.MyInfo{
+  position: static;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 1.5vw;
+  color: white;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  width: 30vw;
+  height: auto;
+  margin: 100vh auto 2vw auto;
+}
+
+.MyInfo h2 {
+  margin-top: 0;
+  font-size: 1.2vw;
+}
+
+.MyInfo h3 {
+  font-size: 1vw;
+  margin-bottom: 0.5vw;
+}
+
+.MyInfo p {
+  font-size: 0.8vw;
+  line-height: 1.2;
+}
+
+.MyInfo li {
+  font-size: 0.7vw;
+  margin-bottom: 0.3vw;
+  font-size: 0.7vw;
+  margin-bottom: 0.3vw;
+  text-align: left;
+  padding-left: 0;
+}
+
+.Contacts {
+  position: static;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 1.5vw;
+  color: white;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  width: 15vw;
+  height: auto;
+  margin: 2vw auto;
+  text-align: center;
+}
+
+.Contacts h2 {
+  margin-top: 0;
+  font-size: 1.2vw;
+  margin-bottom: 1vw;
+}
+
+.contact-item {
+  font-size: 0.8vw;
+  margin-bottom: 0.5vw;
+  text-align: left;
+}
+
+.contact-item strong {
+  display: inline-block;
+  width: 5vw;
+}
+
+.contact-item a {
+  color: white;
+  text-decoration: none;
+}
+
+.welcome-title {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.8s ease;
+  z-index: 1000;
+}
+
+.welcome-visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.welcome-hidden {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.5);
+  pointer-events: none;
+}
+
+.normal-title {
+  transition: all 0.8s ease;
+}
+
+.title-hidden {
+  opacity: 0;
+}
+
+.title-visible {
+  opacity: 1;
+}
+
+.modal-button {
+  transition: all 0.8s ease;
+}
+
+.button-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.button-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.MyInfo-container, .Contacts-container {
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.myinfo-hidden {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+.myinfo-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.contacts-hidden {
+  opacity: 0;
+  transform: translateX(100px);
+}
+
+.contacts-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.MyInfo, .Contacts {
+  transition: all 0.6s ease;
+}
+
+.content-visible .MyInfo,
+.content-visible .Contacts {
+  opacity: 1;
+}
+
+.MyInfo-container:not(.content-visible) .MyInfo,
+.Contacts-container:not(.content-visible) .Contacts {
+  opacity: 0;
+}
+
+.MyInfo {
+  position: static;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 1.5vw;
+  color: white;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  width: 30vw;
+  height: auto;
+  margin: 100vh auto 2vw auto;
+  opacity: 1;
+}
+
+.Contacts {
+  position: static;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 1.5vw;
+  color: white;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  width: 15vw;
+  height: auto;
+  margin: 2vw auto;
+  text-align: center;
+  opacity: 1;
+}
