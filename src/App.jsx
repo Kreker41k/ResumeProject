@@ -120,6 +120,13 @@ const ModalButton = () => {
       technologies: ["JavaScript", "CSS", "HTML"],
       images: ["test1.png", "test2.png", "test3.png"],
       projectLink: "https://github.com/Kreker41k/TattooTest"
+    },
+    Appartment_view: {
+      title: "Appartment_view",
+      description: "Данный проект представляет собой интерактивную веб-систему для просмотра 3D-моделей в реальном времени с использованием технологий Three.js и WebGL. Реализован режим свободного перемещения в сцене с помощью Pointer Lock API и управления клавишами WASD. Для рендеринга используются расширенные методы теней PCFSoftShadowMap, физически корректное освещение и тональное отображение ACESFilmic. Серверная часть на Python обеспечивает раздачу статических файлов и базовый API для взаимодействия с клиентом.",
+      technologies: ["JavaScript", "CSS", "HTML", "Python"],
+      images: ["appart1.png", "appart2.png", "appart3.png"],
+      projectLink: "https://github.com/Kreker41k/Appartment_view"
     }
   };
 
@@ -137,7 +144,7 @@ const ModalButton = () => {
       
       <div className={`normal-title ${showWelcome ? 'title-hidden' : 'title-visible'}`}>
         <h1>Резюме</h1>
-        <p>Представлено 3 проекта</p>
+        <p>Представлено 4 проекта</p>
         <button 
           onClick={openModal} 
           className={`modal-button ${showButton ? 'button-visible' : 'button-hidden'}`}
@@ -167,7 +174,13 @@ const ModalButton = () => {
                 О проекте
               </button>
             </div>
-            <div className="d4">
+            <div className="modal-div d4">
+              <h2>Appartment_view</h2>
+              <button onClick={() => openProjectModal('Appartment_view')} className="modal-button">
+                О проекте
+              </button>
+            </div>
+            <div className="d5">
               <button onClick={closeModal} className="modal-button">
                 Закрыть
               </button>

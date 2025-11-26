@@ -29,8 +29,8 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto;
   grid-template-areas: 
-  "d1 d2 d3"
-  ". d4 .";
+  "d1 d2 d3 d4"
+  ". d5 . .";
   max-width: max-content;
   max-height: max-content;
   margin-top: 1vw;
@@ -40,6 +40,7 @@
 .d2{grid-area: d2;}
 .d3{grid-area: d3;}
 .d4{grid-area: d4;}
+.d4{grid-area: d5;}
 
 .modal-div {
   position: relative;
