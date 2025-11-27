@@ -127,6 +127,13 @@ const ModalButton = () => {
       technologies: ["JavaScript", "CSS", "HTML", "Python"],
       images: ["appart1.png", "appart2.png", "appart3.png"],
       projectLink: "https://github.com/Kreker41k/Appartment_view"
+    },
+    WeatherApp: {
+      title: "WeatherApp",
+      description: "Это Vue 3 приложение для просмотра погоды с TypeScript поддержкой, использующее Composition API и современный стек веб-технологий. Приложение получает актуальные метеоданные через OpenWeatherMap API и отображает температуру, влажность, давление и скорость ветра в элегантном glass-morphism дизайне. Пользователь может ввести любой город в поисковую строку, чтобы мгновенно получить текущий прогноз с адаптивной версткой для мобильных устройств. Проект демонстрирует модульную архитектуру с композаблами, TypeScript типами и компонентным подходом во Vue 3.",
+      technologies: ["TypeScript", "Vue 3", "API"],
+      images: ["weather1.png", "weather2.png", "weather3.png"],
+      projectLink: "https://github.com/Kreker41k/WeatherApp"
     }
   };
 
@@ -144,7 +151,7 @@ const ModalButton = () => {
       
       <div className={`normal-title ${showWelcome ? 'title-hidden' : 'title-visible'}`}>
         <h1>Резюме</h1>
-        <p>Представлено 4 проекта</p>
+        <p>Представлено 5 проектов</p>
         <button 
           onClick={openModal} 
           className={`modal-button ${showButton ? 'button-visible' : 'button-hidden'}`}
@@ -180,7 +187,13 @@ const ModalButton = () => {
                 О проекте
               </button>
             </div>
-            <div className="d5">
+            <div className="modal-div d5">
+              <h2>WeatherApp</h2>
+              <button onClick={() => openProjectModal('WeatherApp')} className="modal-button">
+                О проекте
+              </button>
+            </div>
+            <div className="d6">
               <button onClick={closeModal} className="modal-button">
                 Закрыть
               </button>
