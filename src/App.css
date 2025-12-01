@@ -30,8 +30,8 @@
   grid-template-rows: auto auto;
   grid-template-areas: 
   "d1 d2 d3"
-  "d4 . d5"
-  ". d6 .";
+  "d4 d5 d6"
+  ". d7 .";
   max-width: max-content;
   max-height: max-content;
   margin-top: 1vw;
@@ -43,6 +43,8 @@
 .d4{grid-area: d4;}
 .d5{grid-area: d5;}
 .d6{grid-area: d6;}
+.d7{grid-area: d7;}
+
 
 .modal-div {
   position: relative;

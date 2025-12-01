@@ -134,6 +134,13 @@ const ModalButton = () => {
       technologies: ["TypeScript", "Vue 3", "API"],
       images: ["weather1.png", "weather2.png", "weather3.png"],
       projectLink: "https://github.com/Kreker41k/WeatherApp"
+    },
+    Notes: {
+      title: "Notes",
+      description: "Это полнофункциональный менеджер заметок, созданный на чистом стеке HTML5, CSS3 и JavaScript с использованием CSS Grid/Flexbox для адаптивной верстки. Приложение реализует CRUD-операции (создание, чтение, обновление, удаление), тегирование статусов заметок и фильтрацию, сохраняя данные через Local Storage API. Особенности включают переключение тем (светлая/тёмная), поиск по содержимому, статистику и полную адаптивность для мобильных устройств, планшетов и ПК.",
+      technologies: ["HTML5", "CSS3", "JavaScript"],
+      images: ["notes1.png", "notes2.png", "notes3.png"],
+      projectLink: "https://github.com/Kreker41k/Notes"
     }
   };
 
@@ -151,7 +158,7 @@ const ModalButton = () => {
       
       <div className={`normal-title ${showWelcome ? 'title-hidden' : 'title-visible'}`}>
         <h1>Резюме</h1>
-        <p>Представлено 5 проектов</p>
+        <p>Представлено 6 проектов</p>
         <button 
           onClick={openModal} 
           className={`modal-button ${showButton ? 'button-visible' : 'button-hidden'}`}
@@ -193,7 +200,13 @@ const ModalButton = () => {
                 О проекте
               </button>
             </div>
-            <div className="d6">
+            <div className="modal-div d6">
+              <h2>Notes</h2>
+              <button onClick={() => openProjectModal('Notes')} className="modal-button">
+                О проекте
+              </button>
+            </div>
+            <div className="d7">
               <button onClick={closeModal} className="modal-button">
                 Закрыть
               </button>
